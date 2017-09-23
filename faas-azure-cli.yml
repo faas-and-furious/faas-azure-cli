@@ -1,0 +1,15 @@
+provider:
+  name: faas
+  gateway: http://localhost:8080
+
+functions:
+  faasazurecli:
+    lang: python
+    handler: ./faas_azure_cli
+    image: tripdubroot/faas-azure-cli
+    environment:
+      username: <spn client id>
+      password: <spn client seceret>
+      tenant: <aad tenant id>
+      read_timeout: 65    # seconds
+      write_timeout: 65   # seconds
