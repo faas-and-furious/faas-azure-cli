@@ -4,9 +4,10 @@ provider:
 
 functions:
   faasazurecli:
-    lang: python
+    lang: Dockerfile
     handler: ./faas_azure_cli
     image: tripdubroot/faas-azure-cli
+    fprocess: "python3 index.py"
     environment:
       username: <spn client id>
       password: <spn client seceret>

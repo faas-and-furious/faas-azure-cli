@@ -16,11 +16,13 @@ WORKDIR /root/
 
 COPY index.py           .
 
-COPY faas_azure_cli           function
+RUN mkdir function
 
 RUN touch ./function/__init__.py
 
 WORKDIR /root/function/
+COPY handler.py .
+COPY requirements.txt .
 RUN pip install -r requirements.txt
 
 WORKDIR /root/
